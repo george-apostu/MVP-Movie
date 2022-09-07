@@ -44,8 +44,9 @@ class SearchViewModel {
     // MARK: - Private Method(s)
 
     private func updatePopularMoviesIfNeeded() {
-        let lastFetched = (UserDefaults.standard.value(forKey: UserDefaultKeys.lastFetchedPopularMovies) as? Date) ?? Date()
-        if lastFetched.timeIntervalSinceNow < -604800 {
+        let lastFetched = UserDefaults.standard.value(forKey: UserDefaultKeys.lastFetchedPopularMovies) as? Date
+        let shouldSkipCheck = lastFetched == nil
+        if (lastFetched ?? Date()).timeIntervalSinceNow < -604800 || shouldSkipCheck {
             Task {
                 do {
                     let popularMovies = try await imdbStore.popularMovies()

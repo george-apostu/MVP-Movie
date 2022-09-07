@@ -83,7 +83,7 @@ class SearchResultsViewController: UITableViewController {
         $searchText
             .dropFirst()
             .filter { $0.count > 2 }
-            .throttle(for: .milliseconds(5_000), scheduler: RunLoop.main, latest: true)
+            .throttle(for: .milliseconds(500), scheduler: RunLoop.main, latest: true)
             .sink { [weak self] searchTitle in
                 self?.viewModel?.isShowingRecents = false
                 Task {
