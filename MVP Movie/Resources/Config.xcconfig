@@ -1,0 +1,13 @@
+//
+//  Config.xcconfig
+//  MVP Movie
+//
+//  Created by Dan-George Apostu on 01.09.2022.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+OMDB_API_KEY = d9b47f39
+OMDB_BASE_URL = www.omdbapi.com
+IMDB_BASE_URL = www.imdb-api.com/en/API/MostPopularMovies/k_9bqzve5e
